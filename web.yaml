@@ -1,0 +1,27 @@
+---
+- name: web server deployment using ansible
+  hosts: web
+  tasks:
+
+    - name: installing httpd service
+      yum:
+        name: httpd
+        state: latest
+
+    - name: configuring content in index.html
+      copy:
+        content: " Web server deployed using ansible"
+        dest: /var/www/html/index.html
+
+    - name: starting httpd service
+      service:
+        name: httpd
+        state: started
+        enabled: true
+
+    - name: Allow http service from firewall
+      firewalld:
+        service: http
+        state: enabled
+        permanent: true
+        immediate: true
