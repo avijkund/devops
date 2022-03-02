@@ -9,10 +9,9 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-steps:
-- task: Ansible@0
-  inputs:
-    ansibleInterface: 'agentMachine'
-    playbookPathOnAgentMachine: 'web.yaml'
-    inventoriesAgentMachine: 'noInventory'
+steps: 
 
+- task: Docker@2
+  inputs:
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
