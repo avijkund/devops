@@ -10,8 +10,8 @@ pool:
   vmImage: ubuntu-latest
 
 steps: 
-
-- task: Docker@2
+- task: Bash@3
   inputs:
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
+    targetType: 'inline'
+    script: |
+      echo 'Hello world'
