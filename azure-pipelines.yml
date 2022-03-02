@@ -6,8 +6,8 @@
 trigger:
 - master
 
-pool:mypool
-  vmImage: ubuntu-latest
+pool: mypool
+  vmImage:ubuntu-latest
 
 steps: 
 - task: Bash@3
